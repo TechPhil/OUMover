@@ -1,0 +1,21 @@
+{
+  "name": "oumover",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": "bin.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/local-auth": "^2.1.0",
+    "googleapis": "^105.0.0",
+    "prompt-sync": "^4.2.0"
+  },
+  "pkg": {
+    "assets": "credentials.json"
+  }
+}
