@@ -118,9 +118,9 @@ async function MoveOU(auth, sourceOU, destOU) {
 
 
 async function beginMoves(auth, config) {
-    config.forEach(async (move) => {
+    for (const move of config) {
         await MoveOU(auth, move[0], move[1])
-    })
+    }
 }
 
 
@@ -137,16 +137,17 @@ async function _main() {
         console.log(`${move[0]} => ${move[1]}`);
     })
     if(prompt('OK to continue? y/n > ') == 'y') {
-        beginMoves(auth,config[configName]);
+        await beginMoves(auth,config[configName]);
     } else {
         exit();
     }
 }
 
 
-module.exports = function() {
+module.exports = async function() {
     try {
-        _main()
+        await _main()
+        prompt('Complete!');
     } catch (err) {
         console.error(err);
     }
